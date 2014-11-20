@@ -1,0 +1,496 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#"
+     xml:base="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#">
+        <rdfs:label>Football Ontology</rdfs:label>
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <dct:created>2014-11-09</dct:created>
+        <dc:description xml:lang="en">An ontology which describes the peruvian football.</dc:description>
+        <dc:title xml:lang="en">Football Ontology</dc:title>
+        <dc:creator>Juan Reyes</dc:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#anyType -->
+
+    <rdfs:Datatype rdf:about="&xsd;anyType"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#nonNegativeInteger -->
+
+    <rdfs:Datatype rdf:about="&xsd;nonNegativeInteger"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#positiveInteger -->
+
+    <rdfs:Datatype rdf:about="&xsd;positiveInteger"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#BelongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#BelongsTo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#League"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Round"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HomeTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HomeTeam">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HostTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HostTeam">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Of -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#League"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Nation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedIn">
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Round"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#UmpiredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#UmpiredBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Referee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#instances -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#instances">
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Card"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#mediaCard -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#mediaCard">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Card"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#playerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#playerOf">
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Player"/>
+        <rdfs:range rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Code -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Code">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HomeGoals -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HomeGoals">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HostGoals -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HostGoals">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedOn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Year -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Year">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#description">
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#file -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#file">
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#photographer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#photographer">
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#size -->
+
+    <owl:DatatypeProperty rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#size">
+        <rdfs:domain rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Annotation_Classes -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Annotation_Classes"/>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Image_Element">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#League -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#League">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Of"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HomeTeam"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HostTeam"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#UmpiredBy"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedIn"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Card -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Card">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Annotation_Classes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Element -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Media_Element">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Annotation_Classes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Nation -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Nation">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Person -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Person">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+        <owl:disjointWith rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Stadium"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedMatch -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedMatch">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Match"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#PlayedOn"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HomeGoals"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#HostGoals"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Player -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Player">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Person"/>
+        <owl:disjointWith rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Referee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Referee -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Referee">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Round -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Round">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#BelongsTo"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Stadium -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Stadium">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Team -->
+
+    <owl:Class rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#Team">
+        <rdfs:subClassOf rdf:resource="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#FootballClasses"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#new -->
+
+    <owl:Thing rdf:about="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl#new">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#anyType -->
+
+    <owl:Thing rdf:about="&xsd;anyType">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <owl:Thing rdf:about="&xsd;date">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#nonNegativeInteger -->
+
+    <owl:Thing rdf:about="&xsd;nonNegativeInteger">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#positiveInteger -->
+
+    <owl:Thing rdf:about="&xsd;positiveInteger">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

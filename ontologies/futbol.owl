@@ -1,0 +1,562 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY futbol "http://localhost/ontologies/futbol/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://localhost/ontologies/futbol/"
+     xml:base="http://localhost/ontologies/futbol/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:futbol="http://localhost/ontologies/futbol/">
+    <owl:Ontology rdf:about="http://localhost/ontologies/futbol/">
+        <rdfs:label>Football Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">2.0</owl:versionInfo>
+        <dc:description xml:lang="en">An ontology which describes the peruvian football.</dc:description>
+        <dc:creator>Juan Reyes</dc:creator>
+        <dct:created>2014-11-09</dct:created>
+        <dc:title xml:lang="en">Football Ontology</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost/ontologies/futbol/begin -->
+
+    <owl:AnnotationProperty rdf:about="&futbol;begin"/>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/finish -->
+
+    <owl:AnnotationProperty rdf:about="&futbol;finish"/>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/lbl_netbeans -->
+
+    <owl:AnnotationProperty rdf:about="&futbol;lbl_netbeans"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#anyType -->
+
+    <rdfs:Datatype rdf:about="&xsd;anyType"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#nonNegativeInteger -->
+
+    <rdfs:Datatype rdf:about="&xsd;nonNegativeInteger"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#positiveInteger -->
+
+    <rdfs:Datatype rdf:about="&xsd;positiveInteger"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost/ontologies/futbol/BelongsTo -->
+
+    <owl:ObjectProperty rdf:about="&futbol;BelongsTo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&futbol;League"/>
+        <rdfs:domain rdf:resource="&futbol;Round"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/HomeTeam -->
+
+    <owl:ObjectProperty rdf:about="&futbol;HomeTeam">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&futbol;Match"/>
+        <rdfs:range rdf:resource="&futbol;Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/HostTeam -->
+
+    <owl:ObjectProperty rdf:about="&futbol;HostTeam">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&futbol;Match"/>
+        <rdfs:range rdf:resource="&futbol;Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Of -->
+
+    <owl:ObjectProperty rdf:about="&futbol;Of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&futbol;League"/>
+        <rdfs:range rdf:resource="&futbol;Nation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/PlayedIn -->
+
+    <owl:ObjectProperty rdf:about="&futbol;PlayedIn">
+        <rdfs:domain rdf:resource="&futbol;Match"/>
+        <rdfs:range rdf:resource="&futbol;Round"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/UmpiredBy -->
+
+    <owl:ObjectProperty rdf:about="&futbol;UmpiredBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&futbol;Match"/>
+        <rdfs:range rdf:resource="&futbol;Referee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/instances -->
+
+    <owl:ObjectProperty rdf:about="&futbol;instances">
+        <rdfs:range rdf:resource="&futbol;FootballClasses"/>
+        <rdfs:domain rdf:resource="&futbol;Media_Card"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/mediaCard -->
+
+    <owl:ObjectProperty rdf:about="&futbol;mediaCard">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&futbol;Image_Element"/>
+        <rdfs:range rdf:resource="&futbol;Media_Card"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/playerOf -->
+
+    <owl:ObjectProperty rdf:about="&futbol;playerOf">
+        <rdfs:domain rdf:resource="&futbol;Player"/>
+        <rdfs:range rdf:resource="&futbol;Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Code -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;Code">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/HomeGoals -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;HomeGoals">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/HostGoals -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;HostGoals">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/PlayedOn -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;PlayedOn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Year -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;Year">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/description -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;description">
+        <lbl_netbeans>Descripción</lbl_netbeans>
+        <rdfs:domain rdf:resource="&futbol;Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/file -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;file">
+        <rdfs:domain rdf:resource="&futbol;Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/photographer -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;photographer">
+        <lbl_netbeans>Autor</lbl_netbeans>
+        <rdfs:domain rdf:resource="&futbol;Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/size -->
+
+    <owl:DatatypeProperty rdf:about="&futbol;size">
+        <lbl_netbeans>Tamaño</lbl_netbeans>
+        <rdfs:domain rdf:resource="&futbol;Image_Element"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Annotation_Classes -->
+
+    <owl:Class rdf:about="&futbol;Annotation_Classes"/>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/FootballClasses -->
+
+    <owl:Class rdf:about="&futbol;FootballClasses"/>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Image_Element -->
+
+    <owl:Class rdf:about="&futbol;Image_Element">
+        <rdfs:subClassOf rdf:resource="&futbol;Media_Element"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/League -->
+
+    <owl:Class rdf:about="&futbol;League">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;Of"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Match -->
+
+    <owl:Class rdf:about="&futbol;Match">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;UmpiredBy"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;HomeTeam"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;HostTeam"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;PlayedIn"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Media_Card -->
+
+    <owl:Class rdf:about="&futbol;Media_Card">
+        <rdfs:subClassOf rdf:resource="&futbol;Annotation_Classes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Media_Element -->
+
+    <owl:Class rdf:about="&futbol;Media_Element">
+        <rdfs:subClassOf rdf:resource="&futbol;Annotation_Classes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Nation -->
+
+    <owl:Class rdf:about="&futbol;Nation">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Person -->
+
+    <owl:Class rdf:about="&futbol;Person">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <owl:disjointWith rdf:resource="&futbol;Stadium"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/PlayedMatch -->
+
+    <owl:Class rdf:about="&futbol;PlayedMatch">
+        <rdfs:subClassOf rdf:resource="&futbol;Match"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;PlayedOn"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;HomeGoals"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;HostGoals"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Player -->
+
+    <owl:Class rdf:about="&futbol;Player">
+        <rdfs:subClassOf rdf:resource="&futbol;Person"/>
+        <owl:disjointWith rdf:resource="&futbol;Referee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Referee -->
+
+    <owl:Class rdf:about="&futbol;Referee">
+        <rdfs:subClassOf rdf:resource="&futbol;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Round -->
+
+    <owl:Class rdf:about="&futbol;Round">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;BelongsTo"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Stadium -->
+
+    <owl:Class rdf:about="&futbol;Stadium">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+    </owl:Class>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Team -->
+
+    <owl:Class rdf:about="&futbol;Team">
+        <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Ruiz -->
+
+    <owl:NamedIndividual rdf:about="&futbol;Ruiz">
+        <rdf:type rdf:resource="&futbol;Player"/>
+        <playerOf rdf:resource="&futbol;Team1"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <finish rdf:datatype="&xsd;date">12/12/2014</finish>
+        <begin rdf:datatype="&xsd;date">30/10/2014</begin>
+        <owl:annotatedSource rdf:resource="&futbol;Ruiz"/>
+        <owl:annotatedTarget rdf:resource="&futbol;Team1"/>
+        <owl:annotatedProperty rdf:resource="&futbol;playerOf"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Team1 -->
+
+    <owl:NamedIndividual rdf:about="&futbol;Team1">
+        <rdf:type rdf:resource="&futbol;Team"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Team2 -->
+
+    <owl:NamedIndividual rdf:about="&futbol;Team2">
+        <rdf:type rdf:resource="&futbol;Team"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/new -->
+
+    <owl:Thing rdf:about="&futbol;new">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#anyType -->
+
+    <owl:Thing rdf:about="&xsd;anyType">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <owl:Thing rdf:about="&xsd;date">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#nonNegativeInteger -->
+
+    <owl:Thing rdf:about="&xsd;nonNegativeInteger">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#positiveInteger -->
+
+    <owl:Thing rdf:about="&xsd;positiveInteger">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
