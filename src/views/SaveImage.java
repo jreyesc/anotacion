@@ -1,9 +1,11 @@
 package views;
 
 import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntProperty;
+import com.hp.hpl.jena.ontology.OntResource;
 import config.Constants;
 import java.awt.image.BufferedImage;
 import javax.swing.JFileChooser;
@@ -26,14 +28,26 @@ import com.hp.hpl.jena.shared.PropertyNotFoundException;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.vocabulary.OWL2;
 import com.hp.hpl.jena.vocabulary.RDF;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
+import java.util.Map;
+import javax.swing.Action;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Group;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import models.Field;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -48,6 +62,11 @@ public class SaveImage extends javax.swing.JFrame {
 
     private JLabel lblTemp;
     private JTextField txtTemp;
+    private JButton btnTemp;
+    private Map<String, JTextField> charFields = new HashMap<>();
+    private Map<String, JTextField> charF = new HashMap<>();
+    private ArrayList<Field> contentFields = new ArrayList<>();
+    private Field temp;
     /**
      * Creates new form SaveImage
      */
@@ -59,7 +78,7 @@ public class SaveImage extends javax.swing.JFrame {
             return;
 //            OntClass oClass = Ontology.getOntModel().getOntClass(Ontology.getNameSpace() + "Player");
             Individual ind = Ontology.getOntModel().getIndividual(Ontology.getNameSpace() + "Ruiz");
-            System.out.println(ind);
+//            System.out.println(ind);
             Set<Property> owlAnnotationProperties = new HashSet<Property>() {{
                 add( RDF.type );
                 add( OWL2.annotatedProperty );
@@ -68,10 +87,12 @@ public class SaveImage extends javax.swing.JFrame {
             }};
             ResIterator axioms = Ontology.getOntModel().listSubjectsWithProperty( RDF.type, OWL2.Axiom );
             while ( axioms.hasNext() ) {
+                
                 Resource axiom = axioms.next();
+                System.out.println(axiom);
                 RDFNode indAxiom = axiom.getProperty(OWL2.annotatedSource).getObject();
 
-                System.out.println(axiom.getProperty(OWL2.annotatedSource).getObject());
+//                System.out.println(axiom.getProperty(OWL2.annotatedSource).getObject());
                 if (ind.equals(indAxiom)){
                     System.out.println("done");
                 }
@@ -79,25 +100,24 @@ public class SaveImage extends javax.swing.JFrame {
                 while ( stmts.hasNext() ) {
                     Statement stmt = stmts.next();
                     if ( !owlAnnotationProperties.contains( stmt.getPredicate() )) {
-                        System.out.println( stmt );
-                        System.out.println(stmt.getObject());
+//                        System.out.println( stmt );
+//                        System.out.println(stmt.getObject());
                     }
                 }
             }
             
-            
             for (StmtIterator i = ind.listProperties(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "playerOf")); i.hasNext();){
 //                Property p = (Property) ;
                 Statement s = i.next();
-                System.out.println(s);
+//                System.out.println(s);
                 for (RSIterator j = s.listReifiedStatements(); j.hasNext();){
                     ReifiedStatement rs = j.next();
-                    System.out.println(rs);
+//                    System.out.println(rs);
                 }
 //                    Statement p = s.getProperty(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "begin"));
 //                    System.out.println(p);
                 Resource r = s.getObject().asResource();
-                System.out.println(r);
+//                System.out.println(r);
 //                for (StmtIterator j = p.listProperties(); j.hasNext();){
 //                    System.out.println(j.next());
 //                }
@@ -123,9 +143,14 @@ public class SaveImage extends javax.swing.JFrame {
         
         OntClass oClass = Ontology.getOntModel().getOntClass(Ontology.getNameSpace() + "Image_Element");
         for (Iterator<OntProperty> i = oClass.listDeclaredProperties(true); i.hasNext();){
-            for (NodeIterator j = i.next().listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); j.hasNext();){
+            OntProperty prop = i.next();
+            temp = new Field();
+            temp.setName(prop.toString());
+            for (NodeIterator j = prop.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); j.hasNext();){
                 lblTemp = new JLabel(j.next().toString());
                 txtTemp = new JTextField();
+                temp.setField(txtTemp);
+                charFields.put(prop.toString(), txtTemp);
                 
                 groupLabels.addComponent(lblTemp);
                 groupFields.addComponent(txtTemp);
@@ -142,25 +167,76 @@ public class SaveImage extends javax.swing.JFrame {
         
         Group groupLabels = layout.createParallelGroup();
         Group groupFields = layout.createParallelGroup();
+        Group groupButtons = layout.createParallelGroup();
         Group groupRows = layout.createSequentialGroup();
         
-        layout.setHorizontalGroup(layout.createSequentialGroup().addGroup(groupLabels).addGroup(groupFields));
+        layout.setHorizontalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(groupLabels)
+                        .addGroup(groupFields)
+                .addGroup(groupButtons)
+        );
         layout.setVerticalGroup(groupRows);
         
         OntClass oClass = Ontology.getOntModel().getOntClass(Ontology.getNameSpace() + "Media_Card");
-        for (Iterator<OntProperty> i = oClass.listDeclaredProperties(false); i.hasNext();){
-            System.out.println(i.next());
-//            for (ExtendedIterator j = i.next().listRange(); j.hasNext();){
-//                System.out.println(j.next());
-//                lblTemp = new JLabel(j.next().toString());
-//                txtTemp = new JTextField();
-//                
-//                groupLabels.addComponent(lblTemp);
-//                groupFields.addComponent(txtTemp);
-//                groupRows.addGroup(layout.createParallelGroup().addComponent(lblTemp).addComponent(txtTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
-//            }
+        for (ExtendedIterator i = oClass.listDeclaredProperties(true); i.hasNext();){
+            for (ExtendedIterator j = ((OntProperty) i.next()).listRange(); j.hasNext();){
+                OntClass res = (OntClass) j.next();
+                if (res.getNameSpace().equals(oClass.getNameSpace())){
+                    for (ExtendedIterator k = res.listSubClasses(); k.hasNext();){
+                        final OntClass subClass = (OntClass) k.next();
+                        if (subClass.getNameSpace() != null){
+                            for (NodeIterator l = subClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); l.hasNext();){
+                                lblTemp = new JLabel(l.next().toString());
+                                txtTemp = new JTextField();
+                                txtTemp.setEditable(false);
+                                txtTemp.getDocument().addDocumentListener(new DocumentListener() {
+
+                                    @Override
+                                    public void insertUpdate(DocumentEvent de) {
+                                        change();
+                                    }
+
+                                    @Override
+                                    public void removeUpdate(DocumentEvent de) {
+                                        change();
+                                    }
+
+                                    @Override
+                                    public void changedUpdate(DocumentEvent de) {
+                                        change();
+                                    }
+                                    
+                                    public void change(){
+                                        // made inference
+                                    }
+                                });
+                                final JTextField txt = txtTemp;
+                                btnTemp = new JButton("Buscar");
+                                btnTemp.addActionListener(new ActionListener() {
+
+                                    @Override
+                                    public void actionPerformed(ActionEvent ae) {
+                                        new Search(SaveImage.this, true, subClass, txt).setVisible(true);
+                                    }
+                                });
+                                temp.setField(txtTemp);
+                                charF.put(subClass.toString(), txt);
+
+                                groupLabels.addComponent(lblTemp);
+                                groupFields.addComponent(txtTemp);
+                                groupButtons.addComponent(btnTemp);
+                                groupRows.addGroup(
+                                        layout.createParallelGroup()
+                                                .addComponent(lblTemp)
+                                                .addComponent(txtTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+                            }
+                        }
+                    }
+                }
+            }
         }
-        
     }
 
     /**
@@ -172,17 +248,18 @@ public class SaveImage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btn_import = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         charPanel = new javax.swing.JPanel();
         contentPanel = new javax.swing.JPanel();
+        btn_save = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Import...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_import.setText("Import...");
+        btn_import.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_importActionPerformed(evt);
             }
         });
 
@@ -216,6 +293,13 @@ public class SaveImage extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        btn_save.setText("Guardar");
+        btn_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,11 +307,15 @@ public class SaveImage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1)
+                    .addComponent(btn_import)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                     .addComponent(charPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_save)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -236,19 +324,22 @@ public class SaveImage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_save))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_import)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(charPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(charPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_importActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_importActionPerformed
         JFileChooser fc = new JFileChooser();
 
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("jpg", "jpg");
@@ -279,7 +370,20 @@ public class SaveImage extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un archivo");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_importActionPerformed
+
+    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+        Iterator it = charFields.keySet().iterator();
+        while(it.hasNext()){
+          String key = (String) it.next();
+          System.out.println("Clave: " + key + " -> Valor: " + charFields.get(key).getText());
+        }
+        Iterator it2 = charF.keySet().iterator();
+        while(it2.hasNext()){
+          String key = (String) it2.next();
+          System.out.println("Clave: " + key + " -> Valor: " + charF.get(key).getText());
+        }
+    }//GEN-LAST:event_btn_saveActionPerformed
 
     private static void mueveArchivos(File origen, File destino) throws FileNotFoundException, IOException {
         OutputStream out;
@@ -330,9 +434,10 @@ public class SaveImage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_import;
+    private javax.swing.JButton btn_save;
     private javax.swing.JPanel charPanel;
     private javax.swing.JPanel contentPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

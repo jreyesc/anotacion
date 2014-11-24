@@ -332,6 +332,7 @@
                 <owl:someValuesFrom rdf:resource="&owl;Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <lbl_netbeans>Liga</lbl_netbeans>
     </owl:Class>
     
 
@@ -340,6 +341,18 @@
 
     <owl:Class rdf:about="&futbol;Match">
         <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;PlayedIn"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;HostTeam"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&futbol;UmpiredBy"/>
@@ -352,18 +365,7 @@
                 <owl:someValuesFrom rdf:resource="&owl;Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;HostTeam"/>
-                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;PlayedIn"/>
-                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <lbl_netbeans>Partido</lbl_netbeans>
     </owl:Class>
     
 
@@ -388,6 +390,7 @@
 
     <owl:Class rdf:about="&futbol;Nation">
         <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <lbl_netbeans>Nación</lbl_netbeans>
     </owl:Class>
     
 
@@ -413,13 +416,13 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;HomeGoals"/>
+                <owl:onProperty rdf:resource="&futbol;HostGoals"/>
                 <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;HostGoals"/>
+                <owl:onProperty rdf:resource="&futbol;HomeGoals"/>
                 <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -432,6 +435,7 @@
     <owl:Class rdf:about="&futbol;Player">
         <rdfs:subClassOf rdf:resource="&futbol;Person"/>
         <owl:disjointWith rdf:resource="&futbol;Referee"/>
+        <lbl_netbeans>Jugador</lbl_netbeans>
     </owl:Class>
     
 
@@ -440,6 +444,7 @@
 
     <owl:Class rdf:about="&futbol;Referee">
         <rdfs:subClassOf rdf:resource="&futbol;Person"/>
+        <lbl_netbeans>Arbitro</lbl_netbeans>
     </owl:Class>
     
 
@@ -454,6 +459,7 @@
                 <owl:someValuesFrom rdf:resource="&owl;Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <lbl_netbeans>Ronda</lbl_netbeans>
     </owl:Class>
     
 
@@ -462,6 +468,7 @@
 
     <owl:Class rdf:about="&futbol;Stadium">
         <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <lbl_netbeans>Estadio</lbl_netbeans>
     </owl:Class>
     
 
@@ -470,6 +477,7 @@
 
     <owl:Class rdf:about="&futbol;Team">
         <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
+        <lbl_netbeans>Equipo</lbl_netbeans>
     </owl:Class>
     
 
