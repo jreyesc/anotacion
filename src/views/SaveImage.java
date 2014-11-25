@@ -201,6 +201,7 @@ public class SaveImage extends javax.swing.JFrame {
                     for (ExtendedIterator k = res.listSubClasses(); k.hasNext();){
                         final OntClass subClass = (OntClass) k.next();
                         if (subClass.getNameSpace() != null){
+                            temp = new Field();
                             for (NodeIterator l = subClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); l.hasNext();){
                                 lblTemp = new JLabel(l.next().toString());
                                 txtTemp = new JTextField();
@@ -215,17 +216,15 @@ public class SaveImage extends javax.swing.JFrame {
 
                                     @Override
                                     public void removeUpdate(DocumentEvent de) {
-                                        change();
                                     }
 
                                     @Override
                                     public void changedUpdate(DocumentEvent de) {
-                                        change();
                                     }
                                     
                                     public void change(){
                                         // made inference
-                                        madeInference(txt);
+                                        madeInference(subClass);
                                     }
                                 });
                                 btnTemp = new JButton("Buscar");
@@ -236,7 +235,7 @@ public class SaveImage extends javax.swing.JFrame {
                                         new Search(SaveImage.this, true, subClass, txt).setVisible(true);
                                     }
                                 });
-                                temp.setField(txt);
+                                temp.setField(txtTemp);
                                 contentFields.put(subClass.toString(), temp);
 
                                 groupLabels.addComponent(lblTemp);
@@ -255,10 +254,23 @@ public class SaveImage extends javax.swing.JFrame {
         }
     }
 
-    public void madeInference(JTextField txt){
-//        Resource ind = Ontology.getModel().getResource(Ontology.getNameSpace() + txt.getText());
-//        System.out.println(ind.asIndividual().getOntClass().getLocalName());
+    public void madeInference(OntClass ontClass){
+        Field temp = contentFields.get(ontClass.toString());
+        Field t;
+        Individual ind;
+        for (StmtIterator i = temp.getIndividual().listProperties(); i.hasNext();){
+            Statement st = i.next();
+            if (st.getPredicate().getNameSpace().equals(Ontology.getNameSpace())){
+                ind = st.getObject().as(Individual.class);
+                System.out.println(st);
+                t = contentFields.get(ind.getOntClass().toString());
+                t.setIndividual(ind);
+                t.getField().setText(ind.getLocalName());
+            }
+        }
     }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -403,6 +415,8 @@ public class SaveImage extends javax.swing.JFrame {
         while(it2.hasNext()){
           String key = (String) it2.next();
           System.out.println("Clave: " + key + " -> Valor: " + contentFields.get(key).getField().getText());
+          if (contentFields.get(key).getIndividual() != null)
+            System.out.println("Clave: " + key + " -> Valor: " + contentFields.get(key).getIndividual().getLocalName());
         }
     }//GEN-LAST:event_btn_saveActionPerformed
 

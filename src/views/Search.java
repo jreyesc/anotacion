@@ -10,6 +10,7 @@ import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import com.hp.hpl.jena.vocabulary.OWL2;
 import java.awt.List;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,9 +29,11 @@ public class Search extends javax.swing.JDialog {
 
     private SaveImage parent;
     private JTextField txtField;
+    private OntClass ontClass;
     private AbstractTableModel model;
-    private ArrayList<String> individuals;
-    private ArrayList<String> all_individuals;
+    private ArrayList<Individual> individuals;
+    private ArrayList<Individual> all_individuals;
+    private Field temp;
 
     public JTextField getTxtField() {
         return txtField;
@@ -47,10 +50,11 @@ public class Search extends javax.swing.JDialog {
      * @param ontClass
      * @param txtField
      */
-    public Search(java.awt.Frame parent, boolean modal, OntClass ontClass, final JTextField txtField) {
+    public Search(final java.awt.Frame parent, boolean modal, final OntClass ontClass, final JTextField txtField) {
         super(parent, modal);
         initComponents();
         this.parent = (SaveImage) parent;
+        this.ontClass = ontClass;
         individuals = new ArrayList<>();
         all_individuals = new ArrayList<>();
         for (NodeIterator i = ontClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); i.hasNext();){
@@ -62,11 +66,8 @@ public class Search extends javax.swing.JDialog {
         for (ExtendedIterator<? extends OntResource> i = ontClass.listInstances();i.hasNext();){
             Individual inst = (Individual) i.next();
             if (inst.getNameSpace() != null){
-                System.out.println(inst);
-                Field temp = this.parent.getContentFields().get(ontClass.toString());
-                System.out.println(temp.getField().getText());
-                individuals.add(inst.getLocalName());
-                all_individuals.add(inst.getLocalName());
+                individuals.add(inst);
+                all_individuals.add(inst);
             }
         }
         
@@ -76,7 +77,9 @@ public class Search extends javax.swing.JDialog {
                 if (e.getClickCount() == 2){
                     JTable target = (JTable) e.getSource();
                     int row = target.getSelectedRow();
-                    txtField.setText(individuals.get(row));
+                    temp = ((SaveImage) parent).getContentFields().get(ontClass.toString());
+                    temp.setIndividual(individuals.get(row));
+                    temp.getField().setText(individuals.get(row).getLocalName());
                 }
             }
 });
@@ -95,7 +98,7 @@ public class Search extends javax.swing.JDialog {
 
         @Override
         public Object getValueAt(int row, int column) {
-            String individual = individuals.get(row);
+            String individual = individuals.get(row).getLocalName();
             return individual;
         }
         
@@ -207,7 +210,7 @@ public class Search extends javax.swing.JDialog {
         }else{
             individuals = new ArrayList<>();
             for (int i = 0; i < all_individuals.size(); i++){
-                if (all_individuals.get(i).contains(txt_search.getText())){
+                if (all_individuals.get(i).getLocalName().contains(txt_search.getText())){
                     individuals.add(all_individuals.get(i));
                 }
             }
@@ -216,8 +219,9 @@ public class Search extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_searchActionPerformed
 
     private void btn_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createActionPerformed
-        all_individuals.add(txt_search.getText());
-        individuals.add(txt_search.getText());
+        Individual temp = Ontology.getOntModel().createIndividual(Ontology.getNameSpace() + txt_search.getText(), ontClass);
+        all_individuals.add(temp);
+        individuals.add(temp);
         model.fireTableDataChanged();
     }//GEN-LAST:event_btn_createActionPerformed
 
@@ -227,7 +231,7 @@ public class Search extends javax.swing.JDialog {
         }else{
             individuals = new ArrayList<>();
             for (int i = 0; i < all_individuals.size(); i++){
-                if (all_individuals.get(i).contains(txt_search.getText())){
+                if (all_individuals.get(i).getLocalName().contains(txt_search.getText())){
                     individuals.add(all_individuals.get(i));
                 }
             }
