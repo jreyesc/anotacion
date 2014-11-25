@@ -5,6 +5,7 @@
  */
 package models;
 
+import com.hp.hpl.jena.ontology.Individual;
 import javax.swing.JTextField;
 
 /**
@@ -12,15 +13,15 @@ import javax.swing.JTextField;
  * @author JUAN
  */
 public class Field {
-    private String name;
+    private Individual individual;
     private JTextField field;
 
-    public String getName() {
-        return name;
+    public Individual getIndividual() {
+        return individual;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIndividual(Individual name) {
+        this.individual = name;
     }
 
     public JTextField getField() {

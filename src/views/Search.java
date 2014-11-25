@@ -5,6 +5,7 @@
  */
 package views;
 
+import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
+import models.Field;
 import models.Ontology;
 
 /**
@@ -24,6 +26,7 @@ import models.Ontology;
  */
 public class Search extends javax.swing.JDialog {
 
+    private SaveImage parent;
     private JTextField txtField;
     private AbstractTableModel model;
     private ArrayList<String> individuals;
@@ -47,6 +50,7 @@ public class Search extends javax.swing.JDialog {
     public Search(java.awt.Frame parent, boolean modal, OntClass ontClass, final JTextField txtField) {
         super(parent, modal);
         initComponents();
+        this.parent = (SaveImage) parent;
         individuals = new ArrayList<>();
         all_individuals = new ArrayList<>();
         for (NodeIterator i = ontClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); i.hasNext();){
@@ -56,9 +60,11 @@ public class Search extends javax.swing.JDialog {
         model = new InstancesTable();
         tbl_individuals.setModel(model);
         for (ExtendedIterator<? extends OntResource> i = ontClass.listInstances();i.hasNext();){
-            OntResource inst = i.next();
+            Individual inst = (Individual) i.next();
             if (inst.getNameSpace() != null){
                 System.out.println(inst);
+                Field temp = this.parent.getContentFields().get(ontClass.toString());
+                System.out.println(temp.getField().getText());
                 individuals.add(inst.getLocalName());
                 all_individuals.add(inst.getLocalName());
             }

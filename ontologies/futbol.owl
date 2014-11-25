@@ -15,13 +15,13 @@
 
 <rdf:RDF xmlns="http://localhost/ontologies/futbol/"
      xml:base="http://localhost/ontologies/futbol/"
-     xmlns:dct="http://purl.org/dc/terms/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:futbol="http://localhost/ontologies/futbol/">
     <owl:Ontology rdf:about="http://localhost/ontologies/futbol/">
         <rdfs:label>Football Ontology</rdfs:label>
@@ -168,6 +168,27 @@
     
 
 
+    <!-- http://localhost/ontologies/futbol/competesIn -->
+
+    <owl:ObjectProperty rdf:about="&futbol;competesIn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:seeAlso>begin, finish</rdfs:seeAlso>
+        <rdfs:range rdf:resource="&futbol;League"/>
+        <rdfs:domain rdf:resource="&futbol;Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/hasStadium -->
+
+    <owl:ObjectProperty rdf:about="&futbol;hasStadium">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&futbol;Stadium"/>
+        <rdfs:domain rdf:resource="&futbol;Team"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://localhost/ontologies/futbol/instances -->
 
     <owl:ObjectProperty rdf:about="&futbol;instances">
@@ -190,6 +211,7 @@
     <!-- http://localhost/ontologies/futbol/playerOf -->
 
     <owl:ObjectProperty rdf:about="&futbol;playerOf">
+        <rdfs:seeAlso>begin, finish</rdfs:seeAlso>
         <rdfs:domain rdf:resource="&futbol;Player"/>
         <rdfs:range rdf:resource="&futbol;Team"/>
     </owl:ObjectProperty>
@@ -343,13 +365,7 @@
         <rdfs:subClassOf rdf:resource="&futbol;FootballClasses"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;PlayedIn"/>
-                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;HostTeam"/>
+                <owl:onProperty rdf:resource="&futbol;HomeTeam"/>
                 <owl:someValuesFrom rdf:resource="&owl;Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -361,7 +377,13 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;HomeTeam"/>
+                <owl:onProperty rdf:resource="&futbol;HostTeam"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;PlayedIn"/>
                 <owl:someValuesFrom rdf:resource="&owl;Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -410,6 +432,12 @@
         <rdfs:subClassOf rdf:resource="&futbol;Match"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&futbol;HomeGoals"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&futbol;PlayedOn"/>
                 <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
             </owl:Restriction>
@@ -417,12 +445,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&futbol;HostGoals"/>
-                <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&futbol;HomeGoals"/>
                 <owl:someValuesFrom rdf:resource="&xsd;anyType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -493,6 +515,22 @@
     
 
 
+    <!-- http://localhost/ontologies/futbol/Monumental -->
+
+    <owl:NamedIndividual rdf:about="&futbol;Monumental">
+        <rdf:type rdf:resource="&futbol;Stadium"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/Peru -->
+
+    <owl:NamedIndividual rdf:about="&futbol;Peru">
+        <rdf:type rdf:resource="&futbol;Nation"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://localhost/ontologies/futbol/Ruiz -->
 
     <owl:NamedIndividual rdf:about="&futbol;Ruiz">
@@ -525,11 +563,29 @@
     
 
 
+    <!-- http://localhost/ontologies/futbol/Universitario -->
+
+    <owl:NamedIndividual rdf:about="&futbol;Universitario">
+        <rdf:type rdf:resource="&futbol;Team"/>
+        <hasStadium rdf:resource="&futbol;Monumental"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://localhost/ontologies/futbol/new -->
 
     <owl:Thing rdf:about="&futbol;new">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
     </owl:Thing>
+    
+
+
+    <!-- http://localhost/ontologies/futbol/primera_division_peru -->
+
+    <owl:NamedIndividual rdf:about="&futbol;primera_division_peru">
+        <rdf:type rdf:resource="&futbol;League"/>
+        <Of rdf:resource="&futbol;Peru"/>
+    </owl:NamedIndividual>
     
 
 

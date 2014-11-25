@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Tesis/anotacion/src/models/Ontology.java</file>
-            <file>file:/D:/Tesis/anotacion/src/config/Constants.java</file>
-            <file>file:/D:/Tesis/anotacion/src/views/SaveImage.java</file>
+            <file>file:/home/juan/Projects/anotacion/src/models/Ontology.java</file>
+            <file>file:/home/juan/Projects/anotacion/src/views/SaveImage.java</file>
+            <file>file:/home/juan/Projects/anotacion/src/models/Field.java</file>
+            <file>file:/home/juan/Projects/anotacion/src/views/Search.java</file>
         </group>
     </open-files>
 </project-private>

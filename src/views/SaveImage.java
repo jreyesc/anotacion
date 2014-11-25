@@ -63,10 +63,26 @@ public class SaveImage extends javax.swing.JFrame {
     private JLabel lblTemp;
     private JTextField txtTemp;
     private JButton btnTemp;
-    private Map<String, JTextField> charFields = new HashMap<>();
-    private Map<String, JTextField> charF = new HashMap<>();
-    private ArrayList<Field> contentFields = new ArrayList<>();
+    private Map<String, Field> charFields = new HashMap<>();
+    private Map<String, Field> contentFields = new HashMap<>();
     private Field temp;
+
+    public Map<String, Field> getCharFields() {
+        return charFields;
+    }
+
+    public void setCharFields(Map<String, Field> charFields) {
+        this.charFields = charFields;
+    }
+
+    public Map<String, Field> getContentFields() {
+        return contentFields;
+    }
+
+    public void setContentFields(Map<String, Field> contentFields) {
+        this.contentFields = contentFields;
+    }
+    
     /**
      * Creates new form SaveImage
      */
@@ -145,12 +161,11 @@ public class SaveImage extends javax.swing.JFrame {
         for (Iterator<OntProperty> i = oClass.listDeclaredProperties(true); i.hasNext();){
             OntProperty prop = i.next();
             temp = new Field();
-            temp.setName(prop.toString());
             for (NodeIterator j = prop.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); j.hasNext();){
                 lblTemp = new JLabel(j.next().toString());
                 txtTemp = new JTextField();
                 temp.setField(txtTemp);
-                charFields.put(prop.toString(), txtTemp);
+                charFields.put(prop.toString(), temp);
                 
                 groupLabels.addComponent(lblTemp);
                 groupFields.addComponent(txtTemp);
@@ -189,7 +204,8 @@ public class SaveImage extends javax.swing.JFrame {
                             for (NodeIterator l = subClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); l.hasNext();){
                                 lblTemp = new JLabel(l.next().toString());
                                 txtTemp = new JTextField();
-                                txtTemp.setEditable(false);
+//                                txtTemp.setEditable(false);
+                                final JTextField txt = txtTemp;
                                 txtTemp.getDocument().addDocumentListener(new DocumentListener() {
 
                                     @Override
@@ -209,9 +225,9 @@ public class SaveImage extends javax.swing.JFrame {
                                     
                                     public void change(){
                                         // made inference
+                                        madeInference(txt);
                                     }
                                 });
-                                final JTextField txt = txtTemp;
                                 btnTemp = new JButton("Buscar");
                                 btnTemp.addActionListener(new ActionListener() {
 
@@ -220,8 +236,8 @@ public class SaveImage extends javax.swing.JFrame {
                                         new Search(SaveImage.this, true, subClass, txt).setVisible(true);
                                     }
                                 });
-                                temp.setField(txtTemp);
-                                charF.put(subClass.toString(), txt);
+                                temp.setField(txt);
+                                contentFields.put(subClass.toString(), temp);
 
                                 groupLabels.addComponent(lblTemp);
                                 groupFields.addComponent(txtTemp);
@@ -239,6 +255,11 @@ public class SaveImage extends javax.swing.JFrame {
         }
     }
 
+    public void madeInference(JTextField txt){
+//        Resource ind = Ontology.getModel().getResource(Ontology.getNameSpace() + txt.getText());
+//        System.out.println(ind.asIndividual().getOntClass().getLocalName());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -376,12 +397,12 @@ public class SaveImage extends javax.swing.JFrame {
         Iterator it = charFields.keySet().iterator();
         while(it.hasNext()){
           String key = (String) it.next();
-          System.out.println("Clave: " + key + " -> Valor: " + charFields.get(key).getText());
+          System.out.println("Clave: " + key + " -> Valor: " + charFields.get(key).getField().getText());
         }
-        Iterator it2 = charF.keySet().iterator();
+        Iterator it2 = contentFields.keySet().iterator();
         while(it2.hasNext()){
           String key = (String) it2.next();
-          System.out.println("Clave: " + key + " -> Valor: " + charF.get(key).getText());
+          System.out.println("Clave: " + key + " -> Valor: " + contentFields.get(key).getField().getText());
         }
     }//GEN-LAST:event_btn_saveActionPerformed
 
