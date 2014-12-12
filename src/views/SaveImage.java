@@ -205,7 +205,7 @@ public class SaveImage extends javax.swing.JFrame {
                             for (NodeIterator l = subClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); l.hasNext();){
                                 lblTemp = new JLabel(l.next().toString());
                                 txtTemp = new JTextField();
-//                                txtTemp.setEditable(false);
+                                txtTemp.setEditable(false);
                                 final JTextField txt = txtTemp;
                                 txtTemp.getDocument().addDocumentListener(new DocumentListener() {
 
@@ -246,6 +246,47 @@ public class SaveImage extends javax.swing.JFrame {
                                                 .addComponent(lblTemp)
                                                 .addComponent(txtTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(btnTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+                            }
+                            
+                            for (Iterator<OntProperty> l = subClass.listDeclaredProperties(true); l.hasNext();){
+                                final OntProperty prop = l.next();
+                                temp = new Field();
+                                for (NodeIterator m = prop.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); m.hasNext();){
+                                    
+                                System.out.println(prop);
+                                    btnTemp = null;
+                                    lblTemp = new JLabel(m.next().toString());
+                                    txtTemp = new JTextField();
+                                    txtTemp.setEditable(false);
+                                    final JTextField txt = txtTemp;
+                                    for (ExtendedIterator n = prop.listRange(); n.hasNext();){
+                                        final OntClass range = (OntClass) n.next();
+                                        if (range.getNameSpace() != null && range.getNameSpace().equals(subClass.getNameSpace())){
+                                            System.out.println(range);
+                                            btnTemp = new JButton("Buscar");
+                                            btnTemp.addActionListener(new ActionListener() {
+
+                                                @Override
+                                                public void actionPerformed(ActionEvent ae) {
+                                                    new Search(SaveImage.this, true, range, prop, txt).setVisible(true);
+                                                }
+                                            });
+                                            break;
+                                        }
+                                    }
+                                    temp.setField(txtTemp);
+                                    contentFields.put(prop.toString(), temp);
+
+                                    groupLabels.addComponent(lblTemp);
+                                    groupFields.addComponent(txtTemp);
+                                    Group g = layout.createParallelGroup().addComponent(lblTemp).addComponent(txtTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE);
+                                    if (btnTemp != null){
+                                        groupButtons.addComponent(btnTemp);
+                                        g.addComponent(btnTemp, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE);
+                                    }
+                                    
+                                    groupRows.addGroup(g);
+                                }
                             }
                         }
                     }

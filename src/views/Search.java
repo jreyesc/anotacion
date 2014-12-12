@@ -7,6 +7,7 @@ package views;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
+import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
@@ -78,6 +79,41 @@ public class Search extends javax.swing.JDialog {
                     JTable target = (JTable) e.getSource();
                     int row = target.getSelectedRow();
                     temp = ((SaveImage) parent).getContentFields().get(ontClass.toString());
+                    temp.setIndividual(individuals.get(row));
+                    temp.getField().setText(individuals.get(row).getLocalName());
+                }
+            }
+});
+    }
+    
+    public Search(final java.awt.Frame parent, boolean modal, final OntClass ontClass, final OntProperty ontTarget, final JTextField txtField) {
+        super(parent, modal);
+        initComponents();
+        this.parent = (SaveImage) parent;
+        this.ontClass = ontClass;
+        individuals = new ArrayList<>();
+        all_individuals = new ArrayList<>();
+        for (NodeIterator i = ontClass.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); i.hasNext();){
+            title_class.setText(i.next().toString());
+        }
+        this.txtField = txtField;
+        model = new InstancesTable();
+        tbl_individuals.setModel(model);
+        for (ExtendedIterator<? extends OntResource> i = ontClass.listInstances();i.hasNext();){
+            Individual inst = (Individual) i.next();
+            if (inst.getNameSpace() != null){
+                individuals.add(inst);
+                all_individuals.add(inst);
+            }
+        }
+        
+        tbl_individuals.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                if (e.getClickCount() == 2){
+                    JTable target = (JTable) e.getSource();
+                    int row = target.getSelectedRow();
+                    temp = ((SaveImage) parent).getContentFields().get(ontTarget.toString());
                     temp.setIndividual(individuals.get(row));
                     temp.getField().setText(individuals.get(row).getLocalName());
                 }
