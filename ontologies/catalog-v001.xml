@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1416924566262" name="http://localhost/ontologies/futbol/" uri="futbol.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1416924566262" name="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl" uri="footballOWL.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1416925591472" name="http://localhost/ontologies/futbol/" uri="futbol.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1416925591472" name="http://www.r4isstatic.com/linkeddata/ontologies/football/football.owl" uri="footballOWL.owl"/>
     </group>
 </catalog>
