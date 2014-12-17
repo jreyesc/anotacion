@@ -1,5 +1,6 @@
 package views;
 
+import com.hp.hpl.jena.ontology.DatatypeProperty;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntClass;
@@ -31,8 +32,10 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -65,7 +68,9 @@ public class SaveImage extends javax.swing.JFrame {
     private JButton btnTemp;
     private Map<String, Field> charFields = new HashMap<>();
     private Map<String, Field> contentFields = new HashMap<>();
+    private Map<String, Field> contentDataFields = new HashMap<>();
     private Field temp;
+    private Date date;
 
     public Map<String, Field> getCharFields() {
         return charFields;
@@ -81,6 +86,14 @@ public class SaveImage extends javax.swing.JFrame {
 
     public void setContentFields(Map<String, Field> contentFields) {
         this.contentFields = contentFields;
+    }
+
+    public Map<String, Field> getContentDataFields() {
+        return contentDataFields;
+    }
+
+    public void setContentDataFields(Map<String, Field> contentDataFields) {
+        this.contentDataFields = contentDataFields;
     }
     
     /**
@@ -252,11 +265,11 @@ public class SaveImage extends javax.swing.JFrame {
                                 final OntProperty prop = l.next();
                                 temp = new Field();
                                 for (NodeIterator m = prop.listPropertyValues(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "lbl_netbeans")); m.hasNext();){
-                                    
+                                    boolean isData = true;
                                     btnTemp = null;
                                     lblTemp = new JLabel(m.next().toString());
                                     txtTemp = new JTextField();
-                                    txtTemp.setEditable(false);
+                                    txtTemp.setEditable(true);
                                     final JTextField txt = txtTemp;
                                     for (ExtendedIterator n = prop.listRange(); n.hasNext();){
                                         final OntClass range = (OntClass) n.next();
@@ -270,11 +283,16 @@ public class SaveImage extends javax.swing.JFrame {
                                                     new Search(SaveImage.this, true, range, prop, txt).setVisible(true);
                                                 }
                                             });
+                                            isData = false;
+                                            txtTemp.setEditable(false);
                                             break;
                                         }
                                     }
                                     temp.setField(txtTemp);
-                                    contentFields.put(prop.toString(), temp);
+                                    if (isData)
+                                        contentDataFields.put(prop.toString(), temp);
+                                    else
+                                        contentFields.put(prop.toString(), temp);
 
                                     groupLabels.addComponent(lblTemp);
                                     groupFields.addComponent(txtTemp);
@@ -302,10 +320,15 @@ public class SaveImage extends javax.swing.JFrame {
             Statement st = i.next();
             if (st.getPredicate().getNameSpace().equals(Ontology.getNameSpace())){
                 ind = st.getObject().as(Individual.class);
-                System.out.println(st);
-                t = contentFields.get(ind.getOntClass().toString());
-                t.setIndividual(ind);
-                t.getField().setText(ind.getLocalName());
+                for (ExtendedIterator ite = ind.listOntClasses(true); ite.hasNext();){
+                    OntClass range = (OntClass) ite.next();
+                    if (range.getNameSpace() != null && range.getNameSpace().equals(Ontology.getNameSpace())){
+                        t = contentFields.get(range.toString());
+                        t.setIndividual(ind);
+                        t.getField().setText(ind.getLocalName());
+                        break;
+                    }
+                }
             }
         }
     }
@@ -345,7 +368,7 @@ public class SaveImage extends javax.swing.JFrame {
         charPanel.setLayout(charPanelLayout);
         charPanelLayout.setHorizontalGroup(
             charPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         charPanelLayout.setVerticalGroup(
             charPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,7 +404,7 @@ public class SaveImage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_import)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(charPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,7 +426,7 @@ public class SaveImage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_import)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(charPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -428,7 +451,9 @@ public class SaveImage extends javax.swing.JFrame {
                 if (!dest.exists()){
                     dest.mkdir();
                 }
-                destinoTPK = new File(dest, archivoElegido.getName());
+                
+                date = new Date();
+                destinoTPK = new File(dest, String.valueOf(date.getTime()) + ".jpg");
                 
                 mueveArchivos(archivoElegido, destinoTPK);
                 
@@ -446,17 +471,54 @@ public class SaveImage extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_importActionPerformed
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+        //crear individuo Image_Element
+        OntModel modelTemp = (OntModel) Ontology.getModel();
+        
+        OntClass imageClass = modelTemp.getOntClass(Ontology.getNameSpace() + "Image_Element");
+        Individual image = modelTemp.createIndividual(Ontology.getNameSpace() + String.valueOf(date.getTime()), imageClass);
+        OutputStream file;
+        
         Iterator it = charFields.keySet().iterator();
         while(it.hasNext()){
-          String key = (String) it.next();
-          System.out.println("Clave: " + key + " -> Valor: " + charFields.get(key).getField().getText());
+            String key = (String) it.next();
+            if (!charFields.get(key).getField().getText().equals("")){
+                DatatypeProperty data = modelTemp.getDatatypeProperty(key);
+                image.setPropertyValue(data, modelTemp.createTypedLiteral(charFields.get(key).getField().getText()));
+            }
+            System.out.println("Clave: " + key + " -> Valor: " + charFields.get(key).getField().getText());
         }
+        
+        
+        OntClass cardClass = modelTemp.getOntClass(Ontology.getNameSpace() + "Media_Card");
+        Individual media_card = modelTemp.createIndividual(Ontology.getNameSpace() + "card_" + String.valueOf(date.getTime()), cardClass);
+        ObjectProperty object = modelTemp.getObjectProperty(Ontology.getNameSpace() + "mediaCard");
+        System.out.println(object);
+        image.setPropertyValue(object, media_card);
+        
         Iterator it2 = contentFields.keySet().iterator();
         while(it2.hasNext()){
           String key = (String) it2.next();
           System.out.println("Clave: " + key + " -> Valor: " + contentFields.get(key).getField().getText());
           if (contentFields.get(key).getIndividual() != null)
             System.out.println("Clave: " + key + " -> Valor: " + contentFields.get(key).getIndividual().getLocalName());
+        }
+        
+        try {
+            file = new FileOutputStream("ontologies/futbol.owl");
+            Ontology.getModel().write(file, "RDF/XML");
+            file.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SaveImage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SaveImage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Iterator it3 = contentDataFields.keySet().iterator();
+        while(it3.hasNext()){
+          String key = (String) it3.next();
+          System.out.println("Clave: " + key + " -> Valor: " + contentDataFields.get(key).getField().getText());
+          if (contentDataFields.get(key).getIndividual() != null)
+            System.out.println("Clave: " + key + " -> Valor: " + contentDataFields.get(key).getIndividual().getLocalName());
         }
     }//GEN-LAST:event_btn_saveActionPerformed
 
