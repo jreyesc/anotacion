@@ -56,14 +56,15 @@ public class Ontology {
             model.read(in, "");
             in.close();
         } catch (IOException e) {
+            System.out.println("Fallo");
             return false;
         }
-        nameSpace = model.getNsPrefixURI("");
+        nameSpace = model.getNsPrefixURI("futbol");
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
         reasoner = reasoner.bindSchema(model);
-        OntModelSpec ontModelSpec = OntModelSpec.OWL_DL_MEM;
+        OntModelSpec ontModelSpec = OntModelSpec.OWL_MEM_MICRO_RULE_INF;
         ontModelSpec.setReasoner(reasoner);
-        ontModel = ModelFactory.createOntologyModel(ontModelSpec, ontModel);
+        ontModel = ModelFactory.createOntologyModel(ontModelSpec);
         return true;
     }
 }

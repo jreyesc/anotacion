@@ -27,7 +27,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btn_import" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="0" pref="318" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="318" max="-2" attributes="0"/>
                   <Component id="charPanel" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
                   <Group type="102" attributes="0">
                       <Component id="btn_import" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" pref="308" max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="308" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="charPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -96,7 +96,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="306" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
