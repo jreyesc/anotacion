@@ -55,7 +55,7 @@
                   <Group type="102" attributes="0">
                       <Component id="btn_import" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" pref="308" max="32767" attributes="0"/>
+                      <Component id="jLabel1" pref="327" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="charPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
