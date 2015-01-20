@@ -450,17 +450,11 @@ public class SaveImage extends javax.swing.JFrame {
         Iterator it2 = contentFields.keySet().iterator();
         while (it2.hasNext()) {
             String key = (String) it2.next();
+            System.out.println("Key");
+            System.out.println(key);
             if (contentFields.get(key).getIndividual() != null) {
                 Individual contentInd = contentFields.get(key).getIndividual();
-                Individual image2 = modelTemp.createIndividual(contentInd.getURI(), contentInd.getOntClass());
-                contentInd.setOntClass(contentInd.getOntClass());
-                System.out.println(contentInd.getOntClass());
-                System.out.println(image2.getOntClass());
-                if (modelTemp.getIndividual(contentInd.getURI()) == null){
-                    System.out.println("nuevo");
-                }
-                System.out.println("Individuo..");
-                System.out.println(contentInd);
+                contentInd = modelTemp.createIndividual(contentInd.getURI(), contentInd.getOntClass());
                 for (ExtendedIterator ite = contentInd.listOntClasses(true); ite.hasNext();) {
                     OntClass range = (OntClass) ite.next();
                     System.out.println("Range...");
@@ -473,6 +467,10 @@ public class SaveImage extends javax.swing.JFrame {
                                 OntClass rangeClass = (OntClass) n.next();
                                 if (rangeClass.getNameSpace() != null && rangeClass.getNameSpace().equals(range.getNameSpace())) {
                                     System.out.println(rangeClass);
+                                    Individual contentIndRange = contentFields.get(rangeClass.toString()).getIndividual();
+                                    System.out.println("Indd");
+                                    System.out.println(contentIndRange);
+                                    contentInd.setPropertyValue(prop, contentIndRange);
                                     break;
                                 }
                             }

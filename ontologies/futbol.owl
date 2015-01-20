@@ -8,414 +8,762 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:foaf="http://xmlns.com/foaf/0.1/#" > 
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/HostGoals">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <futbol:lbl_netbeans>Goles visita</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/PlayedMatch"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/PlayedMatch"/>
+    <futbol:lbl_netbeans>Goles visita</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#positiveInteger">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Clausura">
+    <futbol:BelongsTo rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Round"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421755811121">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421755811121"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Monumental">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
     <futbol:builtIn rdf:resource="http://localhost/ontologies/futbol/Peru"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817674635">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418817674635"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418754447777">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418903999385">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418903999385"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/new">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418903706939">
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421784331231">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Cazulo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/fecha_43"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Nacional"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
     <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
     <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A0">
+    <owl:someValuesFrom rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HostTeam"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421756109687">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421756109687"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/fecha_43">
+    <futbol:HostTeam rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <futbol:UmpiredBy rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <futbol:HomeTeam rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <futbol:PlayedIn rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Match"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Alianza_Lima">
+    <futbol:hasStadium rdf:resource="http://localhost/ontologies/futbol/Nacional"/>
+    <futbol:competesIn rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyType"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HomeGoals"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/description">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <futbol:lbl_netbeans>Descripción</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <futbol:lbl_netbeans>Descripción</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418907189492">
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Nacional">
+    <futbol:builtIn rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418753609904">
     <futbol:photographer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">juan</futbol:photographer>
     <futbol:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">android</futbol:description>
     <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12x13</futbol:size>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A0">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HomeGoals"/>
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418902981329">
     <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418902981329"/>
-    <futbol:photographer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">JR</futbol:photographer>
     <futbol:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Test</futbol:description>
+    <futbol:photographer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">JR</futbol:photographer>
     <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12x12</futbol:size>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/PlayedOn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Match">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
-    <rdfs:subClassOf rdf:nodeID="A1"/>
+    <futbol:lbl_netbeans>Partido</futbol:lbl_netbeans>
     <rdfs:subClassOf rdf:nodeID="A2"/>
     <rdfs:subClassOf rdf:nodeID="A3"/>
     <rdfs:subClassOf rdf:nodeID="A4"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418902623813">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Round">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
-    <rdfs:subClassOf rdf:nodeID="A5"/>
-    <futbol:lbl_netbeans>Ronda</futbol:lbl_netbeans>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Ruiz">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Player"/>
-    <futbol:playerOf rdf:resource="http://localhost/ontologies/futbol/Team1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418816888115">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Of">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/League"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Nation"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421754148293">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Ruiz">
+    <futbol:playerOf rdf:resource="http://localhost/ontologies/futbol/Team1"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Player"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Round">
+    <futbol:lbl_netbeans>Ronda</futbol:lbl_netbeans>
+    <rdfs:subClassOf rdf:nodeID="A5"/>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421783436204">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Cazulo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Nacional"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Team2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/competesIn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:seeAlso>begin, finish</rdfs:seeAlso>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/League"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/lbl_netbeans">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418903237886">
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421753712976">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/BelongsTo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/League"/>
     <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Round"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418906920806">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Peru">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Nation"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyType">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/hasStadium">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/League"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418902981329">
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A6">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/Of"/>
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Team">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
-    <futbol:lbl_netbeans>Equipo</futbol:lbl_netbeans>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/UmpiredBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Referee"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Code">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/playerOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:seeAlso>begin, finish</rdfs:seeAlso>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Player"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/builtIn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Nation"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Universitario">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
-    <futbol:hasStadium rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Sporting_Cristal">
+    <futbol:hasStadium rdf:resource="http://localhost/ontologies/futbol/Nacional"/>
     <futbol:competesIn rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418748980521">
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421784138656">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421784138656"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817428916">
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421754148293">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421754148293"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/HostTeam">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <futbol:lbl_netbeans>Equipo visitante</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Team"/>
+  <rdf:Description rdf:nodeID="A4">
+    <owl:someValuesFrom rdf:resource="http://localhost/ontologies/futbol/Round"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/PlayedIn"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Nation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
-    <futbol:lbl_netbeans>Nación</futbol:lbl_netbeans>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421781791560">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A5">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/BelongsTo"/>
     <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/BelongsTo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Year">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421784138656">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Nacional"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Cazulo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418754206233">
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421784331231">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421784331231"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <rdfs:label>Football Ontology</rdfs:label>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
-    <dc:description xml:lang="en">An ontology which describes the peruvian football.</dc:description>
-    <dc:creator>Juan Reyes</dc:creator>
-    <dct:created>2014-11-09</dct:created>
-    <dc:title xml:lang="en">Football Ontology</dc:title>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/builtIn">
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Nation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Referee">
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/fecha_41">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/PlayedMatch"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Universitario">
+    <futbol:competesIn rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:hasStadium rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/HostTeam">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
+    <futbol:lbl_netbeans>Equipo visitante</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Nation">
+    <futbol:lbl_netbeans>Nación</futbol:lbl_netbeans>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Person"/>
-    <futbol:lbl_netbeans>Arbitro</futbol:lbl_netbeans>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A7">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
-    <futbol:finish rdf:datatype="http://www.w3.org/2001/XMLSchema#date">12/12/2014</futbol:finish>
-    <futbol:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#date">30/10/2014</futbol:begin>
-    <owl:annotatedSource rdf:resource="http://localhost/ontologies/futbol/Ruiz"/>
-    <owl:annotatedTarget rdf:resource="http://localhost/ontologies/futbol/Team1"/>
-    <owl:annotatedProperty rdf:resource="http://localhost/ontologies/futbol/playerOf"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421780841527">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/fecha_41"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421753712976">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421753712976"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</owl:versionInfo>
+    <rdfs:label>Football Ontology</rdfs:label>
+    <dc:title xml:lang="en">Football Ontology</dc:title>
+    <dc:description xml:lang="en">An ontology which describes the peruvian football.</dc:description>
+    <dct:created>2014-11-09</dct:created>
+    <dc:creator>Juan Reyes</dc:creator>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Stadium">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
     <futbol:lbl_netbeans>Estadio</futbol:lbl_netbeans>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Image_Element">
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Media_Element"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Player">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Person"/>
-    <owl:disjointWith rdf:resource="http://localhost/ontologies/futbol/Referee"/>
     <futbol:lbl_netbeans>Jugador</futbol:lbl_netbeans>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/PlayedIn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Round"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HostTeam"/>
-    <owl:someValuesFrom rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <owl:disjointWith rdf:resource="http://localhost/ontologies/futbol/Referee"/>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418902844098">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/HomeGoals">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <futbol:lbl_netbeans>Goles casa</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/PlayedMatch"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421782443795">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Rivera"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/fecha_41"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421780841527">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421780841527"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418754552295">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/photographer">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <futbol:lbl_netbeans>Autor</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <futbol:lbl_netbeans>Autor</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <owl:annotatedProperty rdf:resource="http://localhost/ontologies/futbol/playerOf"/>
+    <owl:annotatedTarget rdf:resource="http://localhost/ontologies/futbol/Team1"/>
+    <owl:annotatedSource rdf:resource="http://localhost/ontologies/futbol/Ruiz"/>
+    <futbol:begin rdf:datatype="http://www.w3.org/2001/XMLSchema#date">30/10/2014</futbol:begin>
+    <futbol:finish rdf:datatype="http://www.w3.org/2001/XMLSchema#date">12/12/2014</futbol:finish>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/primera_division_peru">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/League"/>
     <futbol:Of rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/League"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817428916_card">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/file">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/size">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <futbol:lbl_netbeans>Tamaño</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418902844098">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418902844098"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/UmpiredBy"/>
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/finish">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1420606513678">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Team1"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Ruiz"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418903706939">
     <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418903706939"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A8">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/PlayedOn"/>
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyType"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421783878690">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Clausura"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Nacional"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Alianza_Lima"/>
+    <futbol:instances rdf:nodeID="A7"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Cazulo"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421755811121">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418903237886">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15x15</futbol:size>
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418903237886"/>
     <futbol:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Test</futbol:description>
     <futbol:photographer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">JR</futbol:photographer>
-    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418903237886"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/HomeTeam">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <futbol:lbl_netbeans>Equipo local</futbol:lbl_netbeans>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Team1">
+    <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15x15</futbol:size>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421756357782">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421757336863">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Team1"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Ruiz"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418906920806">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418906920806"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421756471741">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/PlayedMatch">
+    <rdfs:subClassOf rdf:nodeID="A1"/>
+    <rdfs:subClassOf rdf:nodeID="A8"/>
+    <rdfs:subClassOf rdf:nodeID="A9"/>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Match"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/mediaCard">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421754990288">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421756109687">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Media_Element">
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Annotation_Classes"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421782357860">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421782357860"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421756231030">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421756231030"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418817674635">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/begin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#positiveInteger">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817674635">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418817674635"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418754447777">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418903999385">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418903999385"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/new">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418903706939">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418907189492">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/PlayedOn">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418902623813">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421754603626">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Of">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Nation"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/League"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/competesIn">
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/League"/>
+    <rdfs:seeAlso>begin, finish</rdfs:seeAlso>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421782042462">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421782042462"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A3">
+    <owl:someValuesFrom rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HomeTeam"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/PlayedIn"/>
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/lbl_netbeans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421756471741">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421756471741"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418903237886">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418906920806">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Peru">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Nation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#anyType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/hasStadium">
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418902981329">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Team">
+    <futbol:lbl_netbeans>Equipo</futbol:lbl_netbeans>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/UmpiredBy">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Referee"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421782443795">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421782443795"/>
+    <futbol:photographer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jose Ramirez</futbol:photographer>
+    <futbol:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carvallo celebrando triunfo parcial de la U</futbol:description>
+    <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">400x600</futbol:size>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Code">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421756231030">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/playerOf">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Player"/>
+    <rdfs:seeAlso>begin, finish</rdfs:seeAlso>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Cazulo">
+    <futbol:playerOf rdf:resource="http://localhost/ontologies/futbol/Sporting_Cristal"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Player"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418748980521">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817428916">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1420606513678">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1420606513678"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421754014823">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421754014823">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421754014823"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Year">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <owl:someValuesFrom rdf:resource="http://localhost/ontologies/futbol/Referee"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/UmpiredBy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418754206233">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Referee">
+    <futbol:lbl_netbeans>Arbitro</futbol:lbl_netbeans>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421781791560">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421781791560"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Image_Element">
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Media_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/PlayedIn">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Round"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421757336863">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421757336863"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/HomeGoals">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/PlayedMatch"/>
+    <futbol:lbl_netbeans>Goles casa</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421782357860">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Rivera">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Referee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/file">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421783878690">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421783878690"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/size">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <futbol:lbl_netbeans>Tamaño</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418902844098">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418902844098"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1421782042462">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Carvallo"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyType"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/PlayedOn"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421754990288">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421754990288"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/HomeTeam">
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Match"/>
+    <futbol:lbl_netbeans>Equipo local</futbol:lbl_netbeans>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Team1">
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Team"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418904060191">
     <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418904060191"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817313988">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/League">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
-    <rdfs:subClassOf rdf:nodeID="A6"/>
     <futbol:lbl_netbeans>Liga</futbol:lbl_netbeans>
+    <rdfs:subClassOf rdf:nodeID="A10"/>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418907189492">
     <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418907189492"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418906920806">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418906920806"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Annotation_Classes">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/PlayedMatch">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Match"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
-    <rdfs:subClassOf rdf:nodeID="A8"/>
-    <rdfs:subClassOf rdf:nodeID="A9"/>
-    <futbol:lbl_netbeans>Partido</futbol:lbl_netbeans>
-  </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Person">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
     <owl:disjointWith rdf:resource="http://localhost/ontologies/futbol/Stadium"/>
+    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/mediaCard">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+  <rdf:Description rdf:nodeID="A10">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/Of"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/Media_Card">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Annotation_Classes"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418902623813">
     <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1418902623813"/>
@@ -423,55 +771,67 @@
     <futbol:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AD</futbol:description>
     <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12x16</futbol:size>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/instances">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
-    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418903999385">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421783436204">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421783436204"/>
+    <futbol:photographer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jose Quiñones</futbol:photographer>
+    <futbol:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entrevista a Cazulo</futbol:description>
+    <futbol:size rdf:datatype="http://www.w3.org/2001/XMLSchema#string">300x500</futbol:size>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Media_Element">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://localhost/ontologies/futbol/Annotation_Classes"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421756357782">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421756357782"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/instances">
+    <rdfs:domain rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdfs:range rdf:resource="http://localhost/ontologies/futbol/FootballClasses"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyType"/>
+    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HostGoals"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418903999385">
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/Carvallo">
+    <futbol:playerOf rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Player"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/1418817313988_card">
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="A9">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HostGoals"/>
-    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418904060191">
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
-    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
     <futbol:instances rdf:resource="http://localhost/ontologies/futbol/primera_division_peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Universitario"/>
     <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Peru"/>
+    <futbol:instances rdf:resource="http://localhost/ontologies/futbol/Monumental"/>
     <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/card_1418817674635">
-    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Media_Card"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://localhost/ontologies/futbol/FootballClasses">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="A4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://localhost/ontologies/futbol/HomeTeam"/>
-    <owl:someValuesFrom rdf:resource="http://localhost/ontologies/futbol/Team"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://localhost/ontologies/futbol/begin">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  <rdf:Description rdf:about="http://localhost/ontologies/futbol/1421754603626">
+    <futbol:mediaCard rdf:resource="http://localhost/ontologies/futbol/card_1421754603626"/>
+    <rdf:type rdf:resource="http://localhost/ontologies/futbol/Image_Element"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </rdf:Description>
 </rdf:RDF>
