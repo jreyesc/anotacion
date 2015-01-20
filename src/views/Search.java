@@ -255,6 +255,7 @@ public class Search extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_searchActionPerformed
 
     private void btn_createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createActionPerformed
+        System.out.println(ontClass);
         Individual temp = Ontology.getOntModel().createIndividual(Ontology.getNameSpace() + txt_search.getText(), ontClass);
         all_individuals.add(temp);
         individuals.add(temp);

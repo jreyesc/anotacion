@@ -104,56 +104,6 @@ public class SaveImage extends javax.swing.JFrame {
         if (Ontology.loadOntology("ontologies/futbol.owl")) {
             drawCharImage();
             drawContentImage();
-            return;
-//            OntClass oClass = Ontology.getOntModel().getOntClass(Ontology.getNameSpace() + "Player");
-            Individual ind = Ontology.getOntModel().getIndividual(Ontology.getNameSpace() + "Ruiz");
-//            System.out.println(ind);
-            Set<Property> owlAnnotationProperties = new HashSet<Property>() {
-                {
-                    add(RDF.type);
-                    add(OWL2.annotatedProperty);
-                    add(OWL2.annotatedSource);
-                    add(OWL2.annotatedTarget);
-                }
-            };
-            ResIterator axioms = Ontology.getOntModel().listSubjectsWithProperty(RDF.type, OWL2.Axiom);
-            while (axioms.hasNext()) {
-
-                Resource axiom = axioms.next();
-                System.out.println(axiom);
-                RDFNode indAxiom = axiom.getProperty(OWL2.annotatedSource).getObject();
-
-//                System.out.println(axiom.getProperty(OWL2.annotatedSource).getObject());
-                if (ind.equals(indAxiom)) {
-                    System.out.println("done");
-                }
-                StmtIterator stmts = axiom.listProperties();
-                while (stmts.hasNext()) {
-                    Statement stmt = stmts.next();
-                    if (!owlAnnotationProperties.contains(stmt.getPredicate())) {
-//                        System.out.println( stmt );
-//                        System.out.println(stmt.getObject());
-                    }
-                }
-            }
-
-            for (StmtIterator i = ind.listProperties(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "playerOf")); i.hasNext();) {
-//                Property p = (Property) ;
-                Statement s = i.next();
-//                System.out.println(s);
-                for (RSIterator j = s.listReifiedStatements(); j.hasNext();) {
-                    ReifiedStatement rs = j.next();
-//                    System.out.println(rs);
-                }
-//                    Statement p = s.getProperty(Ontology.getOntModel().getProperty(Ontology.getNameSpace() + "begin"));
-//                    System.out.println(p);
-                Resource r = s.getObject().asResource();
-//                System.out.println(r);
-//                for (StmtIterator j = p.listProperties(); j.hasNext();){
-//                    System.out.println(j.next());
-//                }
-            }
-
         } else {
             this.dispose();
         }
@@ -495,15 +445,26 @@ public class SaveImage extends javax.swing.JFrame {
         image.setPropertyValue(object, media_card);
         object = modelTemp.getObjectProperty(Ontology.getNameSpace() + "instances");
             System.out.println(object);
+        ArrayList IndList = new ArrayList();
 
         Iterator it2 = contentFields.keySet().iterator();
         while (it2.hasNext()) {
             String key = (String) it2.next();
             if (contentFields.get(key).getIndividual() != null) {
                 Individual contentInd = contentFields.get(key).getIndividual();
-                media_card.addProperty(object, contentInd);
+                Individual image2 = modelTemp.createIndividual(contentInd.getURI(), contentInd.getOntClass());
+                contentInd.setOntClass(contentInd.getOntClass());
+                System.out.println(contentInd.getOntClass());
+                System.out.println(image2.getOntClass());
+                if (modelTemp.getIndividual(contentInd.getURI()) == null){
+                    System.out.println("nuevo");
+                }
+                System.out.println("Individuo..");
+                System.out.println(contentInd);
                 for (ExtendedIterator ite = contentInd.listOntClasses(true); ite.hasNext();) {
                     OntClass range = (OntClass) ite.next();
+                    System.out.println("Range...");
+                    System.out.println(range);
                     if (range.getNameSpace() != null && range.getNameSpace().equals(Ontology.getNameSpace())) {
                         for (Iterator<OntProperty> i = range.listDeclaredProperties(true); i.hasNext();) {
                             OntProperty prop = i.next();
@@ -520,13 +481,20 @@ public class SaveImage extends javax.swing.JFrame {
                     }
                 }
                 System.out.println("Clave: " + key + " -> Valor: " + contentFields.get(key).getIndividual().getLocalName());
+                IndList.add(contentInd);
             }
+        }
+        
+        for (Iterator iterator = IndList.iterator(); iterator.hasNext();) {
+            Individual next = (Individual) iterator.next();
+            media_card.addProperty(object, next);
         }
 
         try {
             file = new FileOutputStream("ontologies/futbol.owl");
             Ontology.getModel().write(file, "RDF/XML");
             file.close();
+            this.dispose();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SaveImage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
